@@ -10,6 +10,12 @@ import numpy as np
 from PIL import Image
 from PIL import ImageGrab
 
+import pyttsx3
+
+OCRSpeech = True
+
+engine = pyttsx3.init()
+
 Screen_Capture = False
 Use_GrayScale = True
 
@@ -29,6 +35,9 @@ else:
             img = Image.open(os.path.dirname(__file__) + '/../reader.png')
             text = tess.image_to_string(img)
             print(text)
+            if OCRSpeech == True:
+                engine.say(text)
+                engine.runAndWait()
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
