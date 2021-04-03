@@ -11,6 +11,7 @@ from PIL import Image
 from PIL import ImageGrab
 
 Screen_Capture = False
+Use_GrayScale = True
 
 if Screen_Capture == True:
     img = ImageGrab.grab()
@@ -18,6 +19,8 @@ else:
     cap = cv2.VideoCapture(0)
     while True:
         ret, frame = cap.read()
+        if Use_GrayScale == True:
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         cv2.imshow('frame', frame)
         if cv2.waitKey(1) & 0xFF == ord('r'):
             print('Reading ...')
