@@ -10,25 +10,53 @@ import numpy as np
 from PIL import Image
 from PIL import ImageGrab
 
+#for speaking without interrupts
+import threading
+
 import pyttsx3
 
 OCRSpeech = True
 
+readRate = 1
+
+# 0 for male voice and 1 for female voice
+VoiceType = 0
+
 engine = pyttsx3.init()
+voices = engine.getProperty('voices')
 
 Screen_Capture = False
 Use_GrayScale = True
 
+def speakText(text):
+    engine.setProperty('voice', voices[VoiceType].id)
+    engine.say(text)
+    engine.runAndWait()
+
 if Screen_Capture == True:
-    img = ImageGrab.grab()
+    while True:
+        img = ImageGrab.grab()
+        cv2.imshow('InVision Gaming Screen Capture', img)
+        if readRate > 0 or (readRate <= 0 and cv2.waitKey(1) & ord('r')):
+            if readRate > 0:
+                time.sleep(readRate)
+            text = tess.image_to_string(img)
+            print(text)
+            if OCRSpeech == True:
+                engine.setProperty('voice', voices[VoiceType].id)
+                engine.say(text)
+                engine.run()
+
 else:
     cap = cv2.VideoCapture(0)
     while True:
         ret, frame = cap.read()
         if Use_GrayScale == True:
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        cv2.imshow('frame', frame)
-        if cv2.waitKey(1) & 0xFF == ord('r'):
+        cv2.imshow('InVision Gaming WebCam', frame)
+        if readRate > 0 or (readRate <= 0 and cv2.waitKey(1) & 0xFF == ord('r')):
+            if readRate > 0:
+                time.sleep(readRate)
             print('Reading ...')
             status = cv2.imwrite('reader.png',frame)
             #print("Image written to file-system : ",status)
@@ -36,13 +64,14 @@ else:
             text = tess.image_to_string(img)
             print(text)
             if OCRSpeech == True:
-                engine.say(text)
-                engine.runAndWait()
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
+                worker = threading.Thread(target = speakText(text))
+                worker.start()
+                worker.join()
 
     cap.release()
     cv2.destroyAllWindows()
+
+
 #img = Image.open(os.path.dirname(__file__) + '/../logo.png')
 
 #with picamera.PiCamera() as camera:
