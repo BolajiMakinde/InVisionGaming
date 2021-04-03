@@ -25,7 +25,7 @@ VoiceType = 0
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 
-Screen_Capture = False
+Screen_Capture = True
 Use_GrayScale = True
 
 def speakText(text):
