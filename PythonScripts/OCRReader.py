@@ -36,16 +36,17 @@ def speakText(text):
 if Screen_Capture == True:
     while True:
         img = ImageGrab.grab()
-        cv2.imshow('InVision Gaming Screen Capture', img)
-        if readRate > 0 or (readRate <= 0 and cv2.waitKey(1) & ord('r')):
+        img.save('reader.png')
+        #cv2.imshow('InVision Gaming Screen Capture', img)
+        if readRate > 0 or (readRate <= 0 and cv2.waitKey(1) & 0xFF==ord('r')):
             if readRate > 0:
                 time.sleep(readRate)
             text = tess.image_to_string(img)
             print(text)
             if OCRSpeech == True:
-                engine.setProperty('voice', voices[VoiceType].id)
-                engine.say(text)
-                engine.run()
+                worker = threading.Thread(target = speakText(text))
+                worker.start()
+                worker.join()
 
 else:
     cap = cv2.VideoCapture(0)
