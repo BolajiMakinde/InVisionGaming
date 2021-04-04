@@ -21,18 +21,18 @@ public class Ball : MonoBehaviour
         globalPos.z = transform.position.z;
     }
 
-    void UpdateLevel(int newLevel)
+    public void UpdateLevel(int newLevel)
     {
         level = newLevel;
         if(level == 0){
-            gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, -0.0127f, gameObject.transform.localPosition.z);
+            gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, -0.0127f);
         }
         else if(level == 1)
         {
-            gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, 0f, gameObject.transform.localPosition.z);;
+            gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 0f);;
         }
         else{
-            gameObject.transform.localPosition  = new Vector3(gameObject.transform.localPosition.x, -0.21f, gameObject.transform.localPosition.z);;
+            gameObject.transform.localPosition  = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, .021f);;
         }
     }
 }

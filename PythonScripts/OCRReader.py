@@ -20,13 +20,15 @@ OCRSpeech = True
 readRate = 1
 
 # 0 for male voice and 1 for female voice
-VoiceType = 0
+VoiceType = 1
 
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 
 Screen_Capture = True
 Use_GrayScale = True
+
+bbCoordPath = 'C:/Users/hb22h/OneDrive/Documents/GitHub/InVisionGaming/HapticState/screenCoordinates.txt'
 
 def speakText(text):
     engine.setProperty('voice', voices[VoiceType].id)
@@ -37,6 +39,15 @@ if Screen_Capture == True:
     while True:
         img = ImageGrab.grab()
         img.save('reader.png')
+        f = open(bbCoordPath, 'r')
+        width = int(f.readline())
+        height = int(f.readline())
+        top = int(f.readline())
+        left = int(f.readline())
+        f.close()
+        img = img.crop((left,top,left+width,top+height))
+        img.save('readerCropped.png')
+
         #cv2.imshow('InVision Gaming Screen Capture', img)
         if readRate > 0 or (readRate <= 0 and cv2.waitKey(1) & 0xFF==ord('r')):
             if readRate > 0:

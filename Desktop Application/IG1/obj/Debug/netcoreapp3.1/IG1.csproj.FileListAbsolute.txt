@@ -1,0 +1,16 @@
+C:\Users\hb22h\OneDrive\Documents\GitHub\InVisionGaming\Desktop Application\IG1\bin\Debug\netcoreapp3.1\IG1.exe
+C:\Users\hb22h\OneDrive\Documents\GitHub\InVisionGaming\Desktop Application\IG1\bin\Debug\netcoreapp3.1\IG1.deps.json
+C:\Users\hb22h\OneDrive\Documents\GitHub\InVisionGaming\Desktop Application\IG1\bin\Debug\netcoreapp3.1\IG1.runtimeconfig.json
+C:\Users\hb22h\OneDrive\Documents\GitHub\InVisionGaming\Desktop Application\IG1\bin\Debug\netcoreapp3.1\IG1.runtimeconfig.dev.json
+C:\Users\hb22h\OneDrive\Documents\GitHub\InVisionGaming\Desktop Application\IG1\bin\Debug\netcoreapp3.1\IG1.dll
+C:\Users\hb22h\OneDrive\Documents\GitHub\InVisionGaming\Desktop Application\IG1\bin\Debug\netcoreapp3.1\IG1.pdb
+C:\Users\hb22h\OneDrive\Documents\GitHub\InVisionGaming\Desktop Application\IG1\obj\Debug\netcoreapp3.1\IG1.csprojAssemblyReference.cache
+C:\Users\hb22h\OneDrive\Documents\GitHub\InVisionGaming\Desktop Application\IG1\obj\Debug\netcoreapp3.1\IG1.Form1.resources
+C:\Users\hb22h\OneDrive\Documents\GitHub\InVisionGaming\Desktop Application\IG1\obj\Debug\netcoreapp3.1\IG1.csproj.GenerateResource.cache
+C:\Users\hb22h\OneDrive\Documents\GitHub\InVisionGaming\Desktop Application\IG1\obj\Debug\netcoreapp3.1\IG1.AssemblyInfoInputs.cache
+C:\Users\hb22h\OneDrive\Documents\GitHub\InVisionGaming\Desktop Application\IG1\obj\Debug\netcoreapp3.1\IG1.AssemblyInfo.cs
+C:\Users\hb22h\OneDrive\Documents\GitHub\InVisionGaming\Desktop Application\IG1\obj\Debug\netcoreapp3.1\IG1.csproj.CoreCompileInputs.cache
+C:\Users\hb22h\OneDrive\Documents\GitHub\InVisionGaming\Desktop Application\IG1\obj\Debug\netcoreapp3.1\IG1.dll
+C:\Users\hb22h\OneDrive\Documents\GitHub\InVisionGaming\Desktop Application\IG1\obj\Debug\netcoreapp3.1\IG1.pdb
+C:\Users\hb22h\OneDrive\Documents\GitHub\InVisionGaming\Desktop Application\IG1\obj\Debug\netcoreapp3.1\IG1.genruntimeconfig.cache
+C:\Users\hb22h\OneDrive\Documents\GitHub\InVisionGaming\Desktop Application\IG1\obj\Debug\netcoreapp3.1\IG1.Properties.Resources.resources

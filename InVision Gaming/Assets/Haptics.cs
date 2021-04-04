@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.IO;
 
 public class Haptics : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Haptics : MonoBehaviour
     [SerializeField]
     public List<int> AllSensorYs = new List<int>();
     public Ball[,] BGA = new Ball[24,24];
+    public bool updateBGA = false;
+    public string BGAStatePath = "";
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +60,22 @@ public class Haptics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(updateBGA == true) {
+
+            System.IO.StreamReader file = new System.IO.StreamReader(BGAStatePath);
+            int i = 0;
+            string line;
+            while((line = file.ReadLine()) != null)  
+            {
+                int j = 0;
+                foreach(char c in line)
+                {
+                    BGA[i,j].UpdateLevel((int)Char.GetNumericValue(c));
+                    j++;
+                }
+                i++;
+            }
+            file.Close();
+        }
     }
 }

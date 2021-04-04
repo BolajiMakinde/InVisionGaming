@@ -58391,6 +58391,8 @@ MonoBehaviour:
   AllSensors: []
   AllSensorXs: 
   AllSensorYs: 
+  updateBGA: 0
+  BGAStatePath: C:\Users\hb22h\OneDrive\Documents\GitHub\InVisionGaming\HapticState\test.txt
 --- !u!33 &5033004669506434797
 MeshFilter:
   m_ObjectHideFlags: 0
