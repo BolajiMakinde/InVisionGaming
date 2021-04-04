@@ -29,6 +29,11 @@ Screen_Capture = True
 Use_GrayScale = True
 
 bbCoordPath = 'C:/Users/hb22h/OneDrive/Documents/GitHub/InVisionGaming/HapticState/screenCoordinates.txt'
+offsetPath = 'C:/Users/hb22h/OneDrive/Documents/GitHub/InVisionGaming/HapticState/offsets.txt'
+readFreqPath = 'C:/Users/hb22h/OneDrive/Documents/GitHub/InVisionGaming/HapticState/readFrequency.txt'
+inputTypePath = 'C:/Users/hb22h/OneDrive/Documents/GitHub/InVisionGaming/HapticState/inputType.txt'
+
+inputType = 'OCR'
 
 def speakText(text):
     engine.setProperty('voice', voices[VoiceType].id)
@@ -45,7 +50,19 @@ if Screen_Capture == True:
         top = int(f.readline())
         left = int(f.readline())
         f.close()
-        img = img.crop((left,top,left+width,top+height))
+        f = open(offsetPath, 'r')
+        offset_top = int(f.readline())
+        offset_left = int(f.readline())
+        offset_width = int(f.readline())
+        offset_height = int(f.readline())
+        f.close()
+        f1 = open(readFreqPath, 'r')
+        readRate = int(f1.readline())
+        f1.close()
+        f = open(inputTypePath)
+        inputType = f.readline()
+        f.close()
+        img = img.crop((left+offset_left,top+offset_top,left+width+offset_width,top+height+offset_height))
         img.save('readerCropped.png')
 
         #cv2.imshow('InVision Gaming Screen Capture', img)
