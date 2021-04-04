@@ -176,6 +176,7 @@
             this.numericUpDown6.Name = "numericUpDown6";
             this.numericUpDown6.Size = new System.Drawing.Size(56, 23);
             this.numericUpDown6.TabIndex = 16;
+            this.numericUpDown6.ValueChanged += new System.EventHandler(this.numericUpDown6_ValueChanged_1);
             // 
             // Form1
             // 

@@ -58,7 +58,7 @@ namespace IG1
                 writer.WriteLine(left.ToString());
             }
         }
-        private void numericUpDown6_ValueChanged(object sender, EventArgs e)
+        private void numericUpDown6_ValueChanged_1(object sender, EventArgs e)
         {
             using (StreamWriter writer = new StreamWriter("C:/Users/hb22h/OneDrive/Documents/GitHub/InVisionGaming/HapticState/offsets.txt"))
             {
@@ -132,5 +132,6 @@ namespace IG1
                 writer.WriteLine(this.comboBox1.Text);
             }
         }
+
     }
 }
